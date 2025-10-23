@@ -43,6 +43,9 @@
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
   "peerDependencies": {
     "typescript": "^5"
   },

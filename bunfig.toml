@@ -7,8 +7,10 @@ peer = true
 
 [test]
 # Test configuration
-preload = []
+# Preload reflect-metadata so decorator metadata is available in tests
+preload = ["reflect-metadata"]
 
 [run]
 # Runtime configuration
-shell = "/bin/sh"
+# Use a valid shell option for Bun
+shell = "system"
