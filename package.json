@@ -3,37 +3,46 @@
   "version": "0.1.0",
   "description": "A lightweight IoC (Inversion of Control) container for Bun runtime",
   "type": "module",
-  "main": "./index.ts",
-  "module": "./index.ts",
-  "types": "./index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "bun": "./index.ts",
-      "import": "./index.ts",
-      "types": "./index.ts"
+      "bun": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./container": {
-      "bun": "./src/container.ts",
-      "import": "./src/container.ts",
-      "types": "./src/container.ts"
+      "bun": "./dist/src/container.js",
+      "import": "./dist/src/container.js",
+      "types": "./dist/src/container.d.ts"
     },
     "./decorator": {
-      "bun": "./src/decorator.ts",
-      "import": "./src/decorator.ts",
-      "types": "./src/decorator.ts"
+      "bun": "./dist/src/decorator.js",
+      "import": "./dist/src/decorator.js",
+      "types": "./dist/src/decorator.d.ts"
+    },
+    "./module-scanner": {
+      "bun": "./dist/src/module-scanner.js",
+      "import": "./dist/src/module-scanner.js",
+      "types": "./dist/src/module-scanner.d.ts"
     }
   },
   "files": [
-    "src",
-    "index.ts",
+    "dist",
     "README.md"
   ],
   "scripts": {
     "dev": "bun run index.ts",
     "test": "bun test",
+    "clean": "rm -rf dist",
+    "build": "bun run clean && bun build ./index.ts ./src/container.ts ./src/decorator.ts ./src/module-scanner.ts --outdir ./dist --target bun && tsc -p tsconfig.types.json",
+    "prepare": "bun run build",
     "example:basic": "bun run examples/basic.ts",
     "example:decorators": "bun run examples/decorators.ts",
-    "example:scanner": "bun run examples/scanner.ts"
+    "example:scanner": "bun run examples/scanner.ts",
+    "example:cancellation": "bun run examples/cancellation.ts",
+    "example:serve": "bun run examples/serve.ts"
   },
   "keywords": [
     "bun",
@@ -44,10 +53,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "bun-cancellation-token": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5"
