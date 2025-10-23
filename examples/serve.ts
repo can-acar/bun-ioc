@@ -15,8 +15,9 @@ class Greeter {
 
 const greeterToken = token<Greeter>("Greeter");
 
+const PORT = Number(process.env.PORT ?? "3000");
 const server = Bun.serve({
-  port: 3000,
+  port: PORT,
   fetch(req) {
     const url = new URL(req.url);
     if (url.pathname === "/hello") {
