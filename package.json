@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A lightweight IoC (Inversion of Control) container for Bun runtime",
   "type": "module",
+  "homepage": "https://github.com/can-acar/bun-ioc",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
