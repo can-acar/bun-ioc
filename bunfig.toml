@@ -1,0 +1,14 @@
+# Bun configuration for bun-ioc module
+
+[install]
+# Configure package installation behavior
+auto = "auto"
+peer = true
+
+[test]
+# Test configuration
+preload = []
+
+[run]
+# Runtime configuration
+shell = "/bin/sh"

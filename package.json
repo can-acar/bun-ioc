@@ -1,0 +1,52 @@
+{
+  "name": "bun-ioc",
+  "version": "0.1.0",
+  "description": "A lightweight IoC (Inversion of Control) container for Bun runtime",
+  "type": "module",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "bun": "./index.ts",
+      "import": "./index.ts",
+      "types": "./index.ts"
+    },
+    "./container": {
+      "bun": "./src/container.ts",
+      "import": "./src/container.ts",
+      "types": "./src/container.ts"
+    },
+    "./decorator": {
+      "bun": "./src/decorator.ts",
+      "import": "./src/decorator.ts",
+      "types": "./src/decorator.ts"
+    }
+  },
+  "files": [
+    "src",
+    "index.ts",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "bun run index.ts",
+    "test": "bun test"
+  },
+  "keywords": [
+    "bun",
+    "ioc",
+    "dependency-injection",
+    "container",
+    "di"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
